@@ -1,0 +1,13 @@
+services:
+  multiapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: multiapp
+    ports:
+      - "8080:8080"
+    environment:
+      DB_PATH: /app/data/app.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
